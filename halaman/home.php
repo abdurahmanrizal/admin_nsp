@@ -48,7 +48,12 @@
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <!-- nanti berdasarkan mysqli_num_rows basis data -->
-          <h6 class="float-left">200</h6>
+          <?php
+            include('config/koneksi.php');
+            $sql_danton = "SELECT * FROM danton WHERE tingkat= 2";
+            $query_danton = mysqli_query($db,$sql_danton);
+          ?>
+          <h6 class="float-left"><?php echo mysqli_num_rows($query_danton);?></h6>
         </a>
       </div>
     </div>
