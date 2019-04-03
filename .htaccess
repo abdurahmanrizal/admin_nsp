@@ -1,0 +1,7 @@
+#Alternate default index page
+# DirectoryIndex login.php
+<IfModule mod_rewrite.c>
+DirectoryIndex login.php
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule !.*\.php$ %{REQUEST_FILENAME}.php [QSA,L]
+</IfModule>

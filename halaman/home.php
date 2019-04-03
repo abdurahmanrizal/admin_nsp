@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
 
   <!-- Breadcrumbs-->
@@ -20,7 +21,7 @@
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <!-- nanti berdasarkan mysqli_num_rows basis data -->
-          <h6 class="float-left">200</h6>
+          <h6 class="float-left" id="taruna"></h6>
         </a>
       </div>
     </div>
@@ -34,7 +35,7 @@
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <!-- nanti berdasarkan mysqli_num_rows basis data -->
-          <h6 class="float-left">200</h6>
+          <h6 class="float-left" id="taruni"></h6>
         </a>
       </div>
     </div>
@@ -47,13 +48,8 @@
           <div class="mr-5">JUMLAH DANTON</div>
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
-          <!-- nanti berdasarkan mysqli_num_rows basis data -->
-          <?php
-            include('config/koneksi.php');
-            $sql_danton = "SELECT * FROM danton WHERE tingkat= 2";
-            $query_danton = mysqli_query($db,$sql_danton);
-          ?>
-          <h6 class="float-left"><?php echo mysqli_num_rows($query_danton);?></h6>
+        
+          <h6 class="float-left" id="danton-card"></h6>
         </a>
       </div>
     </div>
@@ -67,7 +63,7 @@
         </div>
         <a class="card-footer text-white clearfix small z-1" href="#">
           <!-- nanti berdasarkan mysqli_num_rows basis data -->
-          <h6 class="float-left">200</h6>
+          <h6 class="float-left" id="danki"></h6>
         </a>
       </div>
     </div>
@@ -80,35 +76,91 @@
       <thead>
         <tr>
           <th scope="col">NO</th>
+          <th scope="col">Foto Taruna</th>
           <th scope="col">No AK</th>
           <th scope="col">NAMA</th>
           <th scope="col">Pleton</th>
           <th scope="col">NILAI</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-          <td>@mdo</td>
-        </tr>
-      </tbody>
+      <!-- <tbody>
+        
+      </tbody> -->
     </table>
   </div>
 </div>
+<script>
+  var nrp   = $('#no_nrp').val();
+  var nilai = $('#beranda_nilai').DataTable({
+          "columnDefs" :[
+                {
+                    targets: [0],
+                    data: "id_taruna"
+                    // "searchable" : false,
+                    // "orderable"  : false
+                },
+                {
+                    
+                    // "render": function(data, type, row) {
+                    //     return data.kode_pelanggaran; 
+                    // },
+                    "targets": [1],
+                    mRender : function(data, type, row) {
+                        // return data == '1' ? 'Pelanggaran' : 'Pujian';
+                        // return '<a href="''">' + Edit + '</a>';
+                        return '<img src="'+row.foto_taruna+'" width=100px height=150px>';
+                    }
+                    // "orderable"  : false
+                },
+                {
+                    
+                    // "render": function(data, type, row) {
+                    //     return data.kode_pelanggaran; 
+                    // },
+                    "targets": [2],
+                    data : "no_ak"
+                    // "orderable"  : false
+                },
+                {
+                    "targets": [3],
+                    // render: function(data, type, row) {
+                    //     return data.ket_pelanggaran;
+                    // }
+                    data  : "nama_taruna"
+                    
+                },
+                {
+                    "targets": [4],
+                    // render: function(data, type, row) {
+                    //     return data.nilai;
+                    // }
+                    data  : "pleton_taruna"
+                   
+                },
+                {
+                    "targets": [5],
+                    // data static
+                    mRender : function() {
+                      return (85-10);
+                    }
+                    // render: function(data, type, row) {
+                    //     return data == '1' ? 'Pelanggaran' : 'Pujian';
+                    // }
+                   
+                },
+            ],
+            "processing" :true,
+            serverside: true,
+            ajax: {
+                // url       : "http://cobakki.online/APInsp/public/api/rew_puni/status/1",
+                url       : "http://cobakki.online/APInsp/public/api/taruna",
+                method    : "GET",
+                dataSrc   : "",
+            },
+        });
+        nilai.on( 'order.dt search.dt', function () {
+            nilai.column(0, {search:'applied', order:'applied'}).nodes().each( function (cell, i) {
+                cell.innerHTML = i+1;
+            } );
+        } ).draw();
+</script>

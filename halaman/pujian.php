@@ -1,154 +1,73 @@
-<div class="container">
-    <br>
-    <a href="#" class="btn btn-success mb-3" data-toggle="modal" data-target="#modalTambahPujian">
-        <i class="fas fa-plus"></i>
-        <span>Tambah Pujian</span>
-    </a>
-    <!-- modal tambah pujian -->
-    <!-- Modal -->
-    <div class="modal fade" id="modalTambahPujian" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">TAMBAH PUJIAN</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="kode_pujian">Kode pujian</label>
-                            <input type="text" name="kode_pujian" class="form-control" placeholder="kode pujian" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="nama_pujian">Nama Reward</label>
-                            <input type="text" name="nama_pujian" class="form-control"  placeholder="Nama Pujian" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="nilai_pujian">Nama Pujian</label>
-                            <input type="text" name="nilai_pujian" class="form-control"  placeholder="Nilai Pujian" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="keterangan">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" rows="3" placeholder="Keterangan" required></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">TUTUP</button>
-                    <button type="button" class="btn btn-primary">SIMPAN PERUBAHAN</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="table-responsive">
-         <table id="beranda_pujian" class="table table-striped display" style="width:100%">
-            <thead>
-                <tr>
-                <th scope="col">NO</th>
-                <th scope="col">KODE</th>
-                <th scope="col">NAMA</th>
-                <th scope="col">NILAI</th>
-                <th scope="col" class="text-center">AKSI</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- nanti ini adalah isi dari database -->
-                <tr>
-                    <th scope="row">1</th>
-                    <td scope="row">123456</td>
-                    <td scope="row">Memimpin upacara</td>
-                    <td scope="row">85</td>
-                    <td scope="row">
-                        <a href="#" class="btn btn-warning text-light" data-toggle="modal" data-target="#ModalEdit">
-                            <i class="fas fa-user-edit"></i>
-                            <span>Edit</span>
-                        </a>
-                        <!-- modal edit nanti berdasarkan id database pujian -->
-                        <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">EDIT PUJIAN</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="#" method="POST">
-                                            <div class="form-group">
-                                                <label for="kode_pujian">Kode Pujian</label>
-                                                <input type="text" name="kode_pujian" class="form-control" value="123456" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="nama_pujian">Nama Pujian</label>
-                                                <input type="text" name="nama_pujian" class="form-control"  value="Memimpin upacara" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="nilai_pujian">Nilai Pujian</label>
-                                                <input type="text" name="nilai_pujian" class="form-control"  value="85" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="keterangan">Keterangan</label>
-                                                <textarea class="form-control" name="keterangan" rows="3" placeholder="Keterangan" required></textarea>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">TUTUP</button>
-                                        <button type="button" class="btn btn-primary">SIMPAN PERUBAHAN</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-danger" onclick="confirm('Anda yakin ingin menghapus data ini ?');">
-                            <i class="fas fa-trash"></i>
-                            <span>Hapus</span>
-                        </a>
-                        <a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalLihat">
-                            <i class="fas fa-eye"></i>
-                            <span>Lihat</span>
-                        </a>
-                        <!-- modal lihat nanti berdasarkan database -->
-                        <div class="modal fade" id="ModalLihat" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">LIHAT PUJIAN</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form action="#" method="POST">
-                                            <div class="form-group">
-                                                <label for="kode_pujian">Kode pujian</label>
-                                                <input type="text" name="kode_pujian" class="form-control" value="123456" readonly>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="nama_pujian">Nama Reward</label>
-                                                <input type="text" name="nama_pujian" class="form-control"  value="Memimpin upacara" readonly>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="nilai_pujian">Nama Pujian</label>
-                                                <input type="text" name="nilai_pujian" class="form-control"  value="85" readonly>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="keterangan">Keterangan</label>
-                                                <textarea class="form-control" name="keterangan" rows="3" placeholder="Keterangan" readonly></textarea>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">TUTUP</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<?php
+    session_start();
+    $no_nrp = $_SESSION['no_nrp'];
+    $tingkat = 2;
+?>
+<div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+        <a href="#">Halaman Pujian</a>
+        </li>
+        <li class="breadcrumb-item active">Overview</li>
+    </ol>
+    <form class="form-inline">
+            <label class="my-1 mr-2" for="tingkatan">Tingkatan</label>
+            <select class="custom-select my-1 mr-sm-2" id="tingkat" name="tingkat">
+                <option value="0">Pilih Tingkatan....</option>
+                <?php
+                    if($tingkat != 0){
+                        for($i=1; $i<5;$i++){
+                            if($tingkat == $i){?>
+                                 <option value="<?php echo $i;?>" selected>TINGKAT <?php echo $i;?></option>
+                            <?php }
+                        }
+                    }else{
+                        for($i=1; $i<5; $i++){?>
+                             <option value="<?php echo $i;?>">TINGKAT <?php echo $i;?></option>
+                        <?php }
+                    }
+                ?>
+            </select>
+        <a href="#" id="submit-pujian" class="btn btn-primary my-1">Submit</a>
+    </form>
 </div>
+
+<div class="container-fluid" id="data_pujian">
+    
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#wrapper #content-wrapper #submit-pujian').on('click', function() {
+            // var result = confirm('Benar akan di hapus ..?');
+        // var pleton = $('#wrapper #content-wrapper #pleton').val();
+        var tingkat = $('#wrapper #content-wrapper #tingkat').val();
+        $.ajax({ 
+             type       : "POST", 
+             dataType   : "html", 
+             url        : "halaman/data_pujian.php",
+             data       : "tingkat="+tingkat,
+            //  data:  {tingkat:tingkat, pleton:pleton},
+             success: function(msg){ 
+                 if(msg == ''){ 
+                    $("#data_pujian").html('mantabbbb bangettttttttt');                                                                                   
+                 }else{ 
+                    $("#data_pujian").html(msg);                               
+                 }                                                      
+             } 
+          });
+        });
+        // MENGAMBIL TINGKATAN USER DENGAN TUJUAN DAPAT MENGAMBIL DATA TARUNA/TARUNI 
+        // BERDASARKAN PLETON DAN TINGKATAN TARUNA/TARUNI == TINGKATAN USER
+        // var nrp = $('#no_nrp').val();
+        // $.ajax({
+        //     url     :"http://dpongs.com/APInsp/public/api/user_nsp/nrp/"+nrp,
+        //     method  :"GET",
+        //     datatype:"JSON",
+        //     success : function(data){
+        //         $('#tingkatan_user').val(data[0]['tingkat_user']);
+        //     } 
+        // });
+    });
+</script>
